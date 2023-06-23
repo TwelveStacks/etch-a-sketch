@@ -6,7 +6,7 @@ function createColumn() {
         var square = document.createElement('div');
         square.id = 'square' + i;
         square.className = 'square';
-        square.style.cssText = 'height: 50px; width: 50px;'
+        square.style.cssText = 'min-height: 25px; min-width: 25px;'
         square.style.border = '1px solid black';
         squareDiv.appendChild(square);
     }

@@ -4,4 +4,20 @@ body {
 
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.squares {
+    flex: 1;
+}
+
+.headerText {
+    text-align: center;
+    font-size: 50px;
+}
+
+.square:hover {
+    background-color: aqua;
 }
