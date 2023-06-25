@@ -9,7 +9,25 @@
   </head>
   <body>
     <h1 class="headerText">Etch-A-Sketch</h1>
+    <div class="buttonContainer">
+      <button class="button" onclick="changeSize()">Change Size</button>
+    </div>
     <div class="container"></div>
-    <button>Change Size</button>
+    <div class="inputContainer">
+      <div class="sliderContainer">
+        <input
+          type="range"
+          min="5"
+          max="25"
+          value="16"
+          class="slider"
+          id="sizeRange"
+        />
+        <p>Value: <span id="sliderValue"></span></p>
+      </div>
+      <div>
+        <input type="color" id="colorPicker" value="#0000ff" />
+      </div>
+    </div>
   </body>
 </html>
