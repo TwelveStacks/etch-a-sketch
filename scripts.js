@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 let currentColor = "#000000";
+let currentMode = 'draw';
 
 // Check if mouse is down to color pixels while holding mouse button
 let mouseDown = false;
@@ -30,10 +31,10 @@ function createGrid(width, height) {
     }
 }
 
-const button = document.querySelector('.button');
+// Change size button 
+const button = document.getElementById('changeSize');
 
-// Button to change size
-function changeSize() {
+button.addEventListener('click', () => {
     let size = parseInt(prompt("Input a number to increase grid size."));
     if (size <= 100) {
         container.replaceChildren();
@@ -43,7 +44,7 @@ function changeSize() {
     else {
         alert("Error. Max value is 100")
     }
-}
+})
 
 // Color square
 function colorSquare(e) {
@@ -73,11 +74,32 @@ colorPicker.addEventListener('input', () => {
     currentColor = colorPicker.value;
 })
 
+
 // Clear grid
-function clearGrid() {
+const clearButton = document.getElementById('clearButton');
+
+clearButton.addEventListener('click', () => {
     container.replaceChildren();
     createGrid(parseInt(slider.value), parseInt(slider.value));
     console.log(slider.value)
-}
+});
+
+// Eraser button
+const eraserButton = document.getElementById('eraser');
+
+eraserButton.addEventListener('click', () => {
+    if (currentMode == 'draw') {
+        currentColor = "#FFFFFF";
+        currentMode = 'eraser';
+        eraserButton.style.borderColor = 'red';
+        eraserButton.style.color = 'red';
+    }
+    else if (currentMode == 'eraser') {
+        currentColor = colorPicker.value;
+        eraserButton.style.borderColor = 'green';
+        eraserButton.style.color = 'black';
+        currentMode = 'draw';
+    }
+})
 
 createGrid(16, 16);

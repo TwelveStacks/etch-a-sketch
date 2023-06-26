@@ -36,6 +36,7 @@ body {
     border-radius: 8px;
     border: 2px solid green;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 5px;
 }
 
 /* .square:hover {
@@ -70,10 +71,6 @@ body {
     gap: 50px;
 }
 
-.clear {
-    margin: 10px;
-}
-
 .footer {
     display: flex;
     justify-content: center;
@@ -89,4 +86,14 @@ body {
 .fa-github{
     margin: 10px;
     font-size: 30px;
+}
+
+.button:hover {
+    border-color: blue;
+    color: blue;
+}
+
+#eraser:active {
+    color: red;
+    border-color: red;
 }
