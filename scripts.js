@@ -27,14 +27,14 @@ const button = document.querySelector('.button');
 
 // Button to change size
 function changeSize() {
-    let size = prompt("Input a number to increase grid size.")
+    let size = parseInt(prompt("Input a number to increase grid size."));
     if (size <= 100) {
         container.replaceChildren();
         createGrid(parseInt(size), parseInt(size));
         output.textContent = size + ' x ' + size;
     }
     else {
-        alert("Max is 100")
+        alert("Error. Max value is 100")
     }
 }
 

@@ -9,26 +9,30 @@
   </head>
   <body>
     <h1 class="headerText">Etch-A-Sketch</h1>
-    <div class="buttonContainer">
-      <button class="button" onclick="changeSize()">Change Size</button>
-    </div>
-    <div class="centerDiv">
-      <div class="container"></div>
-    </div>
-    <div class="inputContainer">
-      <div class="sliderContainer">
-        <input
-          type="range"
-          min="5"
-          max="64"
-          value="16"
-          class="slider"
-          id="sizeRange"
-        />
-        <p>Value: <span id="sliderValue"></span></p>
+    <div class="main">
+      <div class="left">
+        <div class="inputContainer">
+          <div class="sliderContainer">
+            <input
+              type="range"
+              min="5"
+              max="64"
+              value="16"
+              class="slider"
+              id="sizeRange"
+            />
+            <p>Value: <span id="sliderValue"></span></p>
+          </div>
+          <div>
+            <input type="color" id="colorPicker" value="#0000ff" />
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button class="button" onclick="changeSize()">Change Size</button>
+        </div>
       </div>
-      <div>
-        <input type="color" id="colorPicker" value="#0000ff" />
+      <div class="centerDiv">
+        <div class="container"></div>
       </div>
     </div>
   </body>
