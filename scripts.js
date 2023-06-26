@@ -64,7 +64,6 @@ slider.oninput = function() {
     output.textContent = this.value + " x " + this.value;
     container.replaceChildren();
     createGrid(parseInt(this.value), parseInt(this.value));
-    console.log(this.value);
 }
 
 // Color Picker
@@ -74,5 +73,11 @@ colorPicker.addEventListener('input', () => {
     currentColor = colorPicker.value;
 })
 
+// Clear grid
+function clearGrid() {
+    container.replaceChildren();
+    createGrid(parseInt(slider.value), parseInt(slider.value));
+    console.log(slider.value)
+}
 
 createGrid(16, 16);
