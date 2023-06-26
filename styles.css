@@ -6,12 +6,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 500px;
+    max-height: 500px;
+    min-width: 500px;
+    min-height: 500px;
     margin: 50px;
+    border: 2px solid black;
 }
 
-.squares {
-    flex: 1;
-}
+/* .square {
+    display: flex;
+} */
 
 .headerText {
     text-align: center;
@@ -41,4 +46,18 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
+}
+
+.centerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    display: flex;
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: auto;
+    box-sizing: border-box;
 }

@@ -2,12 +2,13 @@ const container = document.querySelector('.container');
 
 function createColumn(value) {
     const squareDiv = document.createElement('div');
+    const squareSize = 500/value;
     for (let i = 0; i < value; i++) {
         let square = document.createElement('div');
         square.id = 'square' + i;
         square.className = 'square';
-        square.style.cssText = 'min-height: 25px; min-width: 25px;'
-        square.style.border = '1px solid black';
+        square.style.cssText = `height: ${squareSize}px; width: ${squareSize}px;`;
+        square.style.border = '1px solid gray';
         // Change color when mouse is hover/over square
         square.addEventListener("mouseenter", () => square.style.backgroundColor = 'aqua');
         square.addEventListener("mouseleave", () => square.style.backgroundColor = 'white');
@@ -26,8 +27,15 @@ const button = document.querySelector('.button');
 
 // Button to change size
 function changeSize() {
-    let size = prompt("Input a width and height")
-    
+    let size = prompt("Input a number to increase grid size.")
+    if (size <= 100) {
+        container.replaceChildren();
+        createGrid(parseInt(size), parseInt(size));
+        output.textContent = size + ' x ' + size;
+    }
+    else {
+        alert("Max is 100")
+    }
 }
 
 // Slider
