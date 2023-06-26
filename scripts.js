@@ -1,5 +1,12 @@
 const container = document.querySelector('.container');
+let currentColor = "#000000";
 
+// Check if mouse is down to color pixels while holding mouse button
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+// Generates Grid
 function createColumn(value) {
     const squareDiv = document.createElement('div');
     const squareSize = 500/value;
@@ -10,8 +17,8 @@ function createColumn(value) {
         square.style.cssText = `height: ${squareSize}px; width: ${squareSize}px;`;
         square.style.border = '1px solid gray';
         // Change color when mouse is hover/over square
-        square.addEventListener("mouseenter", () => square.style.backgroundColor = 'aqua');
-        square.addEventListener("mouseleave", () => square.style.backgroundColor = 'white');
+        square.addEventListener("mousedown", colorSquare);
+        square.addEventListener("mouseover", colorSquare);
         squareDiv.appendChild(square);
     }
     container.appendChild(squareDiv);
@@ -38,6 +45,16 @@ function changeSize() {
     }
 }
 
+// Color square
+function colorSquare(e) {
+    if (e.type === 'mouseover' && !mouseDown) {
+        return
+    }
+    else{
+        e.target.style.backgroundColor = currentColor;
+    }
+}
+
 // Slider
 var slider = document.getElementById("sizeRange");
 var output = document.getElementById("sliderValue");
@@ -49,5 +66,13 @@ slider.oninput = function() {
     createGrid(parseInt(this.value), parseInt(this.value));
     console.log(this.value);
 }
+
+// Color Picker
+var colorPicker = document.getElementById("colorPicker");
+
+colorPicker.addEventListener('input', () => {
+    currentColor = colorPicker.value;
+})
+
 
 createGrid(16, 16);
