@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 let currentColor = "#000000";
 let currentMode = 'draw';
+let toggleGridLines = 'on';
 
 // Check if mouse is down to color pixels while holding mouse button
 let mouseDown = false;
@@ -82,6 +83,33 @@ clearButton.addEventListener('click', () => {
     container.replaceChildren();
     createGrid(parseInt(slider.value), parseInt(slider.value));
     console.log(slider.value)
+});
+
+// Toggle grid
+const toggleGrid = document.getElementById('grid');
+
+toggleGrid.addEventListener('click', () => {
+    if (toggleGridLines == 'on') {
+        let squareStyle = document.querySelectorAll('.square');
+        for (let i = 0; i < squareStyle.length; i++) {
+            let item = squareStyle[i];
+            item.style.border = '0';
+        }
+        toggleGrid.style.borderColor = 'red';
+        toggleGrid.style.color = 'red';
+        toggleGridLines = 'off';
+        console.log(squareStyle)
+    }
+    else if (toggleGridLines == 'off') {
+        let squareStyle = document.querySelectorAll('.square');
+        for (let i = 0; i < squareStyle.length; i++) {
+            let item = squareStyle[i];
+            item.style.border = '1px solid gray';
+        }
+        toggleGrid.style.borderColor = 'green';
+        toggleGrid.style.color = 'black';
+        toggleGridLines = 'on';
+    }
 });
 
 // Eraser button
