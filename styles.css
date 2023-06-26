@@ -73,3 +73,20 @@ body {
 .clear {
     margin: 10px;
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fa-github{
+    margin: 10px;
+    font-size: 30px;
+}
