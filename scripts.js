@@ -49,7 +49,7 @@ button.addEventListener('click', () => {
 
 // Color square
 function colorSquare(e) {
-    if (e.type === 'mouseover' && !mouseDown) {
+    if (e.type == 'mouseover' && !mouseDown) {
         return
     }
     else{
